@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>只为你绽放的夜空</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: radial-gradient(circle at bottom, #0d1b2a 0%, #02040a 100%);
+      overflow: hidden;
+      height: 100vh;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      user-select: none;
+      touch-action: none; /* 防止手机端滑动时页面跟着滚动 */
+    }
+    canvas {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    /* 表白弹窗卡片（初始隐藏，由 Popmotion 弹簧弹出） */
+    #love-card {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      z-index: 10;
+      text-align: center;
+      color: #fff;
+      pointer-events: none;
+      opacity: 0;
+      text-shadow: 0 0 20px rgba(255, 105, 180, 0.9), 0 0 40px rgba(255, 20, 147, 0.6);
+    }
+    #love-card h1 {
+      font-size: 3rem;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffecd2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    #love-card p {
+      font-size: 1.2rem;
+      color: #ffdde1;
+      letter-spacing: 2px;
+    }
+    /* 底部手势操作提示 */
+    #hint {
+      position: fixed;
+      bottom: 24px;
+      width: 100%;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      z-index: 5;
+      pointer-events: none;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="sky"></canvas>
+
+  <!-- 你可以自由修改这里的表白文字 -->
+  <div id="love-card">
+    <h1>生日快乐 ❤️</h1>
+    <p>满天星河不及你眼眸万分之一</p>
+  </div>
+
+  <div id="hint">点击燃放烟花 · 滑动划出流星 · 双击解锁爱心</div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
